@@ -1,9 +1,11 @@
-Feature: Test de API súper simple
+Feature: Test Marvel Characters API
 
   Background:
     * configure ssl = true
+    * url baseUrl = 'http://bp-se-test-cabcd9b246a5.herokuapp.com'
 
-  Scenario: Verificar que un endpoint público responde 200
-    Given url 'https://httpbin.org/get'
-    When method get
+  Scenario: Get all characters
+    Given url baseUrl + '/testuser/api/characters'
+    When method GET
     Then status 200
+    * print response
